@@ -46,8 +46,8 @@
 	
 	<body>
 		<div id= "app" >
-		  
-	                 <el-tabs type="border-card">
+		  <template>
+	                 <el-tabs type="border-card"  >
   <el-tab-pane label="首页">
       
 		  <div width="70%" align = "center" >这是首页
@@ -265,6 +265,15 @@
 			</td>
 						 <td>
 			   <div >
+				 <a class="cardBox" href="https://mail.google.com/"   target="_blank">
+				         <h3>Gmail</h5>
+						 <div class="remark_data" >gmail邮箱</div>
+				</a>
+		     </div>
+			</td>
+
+						 <td>
+			   <div >
 				 <a class="cardBox" href="https://www.bypass.cn/"  target="_blank">
 				         <h3>Bypass</h5>
 						 <div class="remark_data" >分流抢票软件</div>
@@ -279,6 +288,15 @@
 				</a>
 		     </div>
 			</td>
+						 <td>
+			   <div >
+				 <a class="cardBox" href="https://www.nowcoder.com/"   target="_blank">
+				         <h3>牛客网</h5>
+						 <div class="remark_data" >求职准备</div>
+				</a>
+		     </div>
+			</td>
+
 		    </tr>
 	  </table>
   </el-tab-pane>
@@ -376,6 +394,7 @@
 				</a>
 		     </div>
 			</td>
+		
 		    </tr>
 	  </table>
  </el-tab-pane>
@@ -423,22 +442,8 @@
 				</a>
 		     </div>
 			</td>
-						 <td>
-			   <div >
-				 <a class="cardBox" href="https://ecchi.iwara.tv"  target="_blank">
-				         <h3>iwara</h5>
-						 <div class="remark_data" >mmd网站</div>
-				</a>
-		     </div>
-			</td>
-						 <td>
-			   <div >
-				 <a class="cardBox" href="https://cn.pornhub.com/"  target="_blank">
-				         <h3>pornhub</h5>
-						 <div class="remark_data" >视频网站</div>
-				</a>
-		     </div>
-			</td>
+
+
 		    </tr>
 	  </table>
  </el-tab-pane>
@@ -529,6 +534,33 @@
 			</td>
 						 <td>
 			   <div >
+				 <a class="cardBox" href="https://www.w3school.com.cn/"   target="_blank">
+				         <h3>W3school</h5>
+						 <div class="remark_data" >编程开发教学</div>
+				</a>
+		     </div>
+			</td>
+
+						 <td>
+			   <div >
+				 <a class="cardBox" href="https://leetcode-cn.com/"   target="_blank">
+				         <h3>LeetCode</h5>
+						 <div class="remark_data" >算法学习</div>
+				</a>
+		     </div>
+			</td>
+
+						 <td>
+			   <div >
+				 <a class="cardBox" href="https://beginnersbook.com/"   target="_blank">
+				         <h3>BeginnersBook</h5>
+						 <div class="remark_data" >Java教程</div>
+				</a>
+		     </div>
+			</td>
+
+						 <td>
+			   <div >
 				 <a class="cardBox" href="http://www.cyc2018.xyz/#%E7%AE%97%E6%B3%95" target="_blank" >
 				         <h3>CS-Notes</h5>
 						 <div class="remark_data" >编程笔记</div>
@@ -562,7 +594,7 @@
 		    </tr>
 	  </table>
  </el-tab-pane>
-    <el-tab-pane label="其他">
+ <el-tab-pane label="其他">
           <table width="80%" align="center">
 	                 <!--<i class="el-icon-s-promotion"></i>-->
 	        <tr class="tr_data">
@@ -583,10 +615,89 @@
 				</a>
 		     </div>
 			</td>
+
+
 		    </tr>
 	  </table>
  </el-tab-pane>
+  <el-tab-pane label="网址列表">
+    <table width="80%" align="center"  >
+	<tr  v-for="(data, index) in tableData" :key="index"  height="30px" >
+           <td width="20%"   text-align="left">{{data.name}}</td>
+
+		   <td  width="20%"  text-align="left">{{data.remark}}</td>
+		      
+		   <td  width="40%" text-align="left">{{data.address}}</td>
+		   </tr>
+    </table>
+ </el-tab-pane>
+ <el-tab-pane label="">
+          <table width="80%" align="center">
+	     <tr class="tr_data">
+									 <td>
+			   <div >
+				 <a class="cardBox" href="https://ecchi.iwara.tv"  target="_blank">
+				         <h3>iwara</h5>
+						 <div class="remark_data" >mmd网站</div>
+				</a>
+		     </div>
+			</td>
+			 <td>
+			   <div >
+				 <a class="cardBox" href="https://www.youtube.com/"   target="_blank">
+				         <h3>YouTube</h5>
+						 <div class="remark_data" >视频网站</div>
+				</a>
+		     </div>
+			</td>
+
+			 <td>
+			   <div >
+				 <a class="cardBox" href="https://www.pixiv.net/novel/"   target="_blank">
+				         <h3>pixiv</h5>
+						 <div class="remark_data" >图片网站</div>
+				</a>
+		     </div>
+			</td>
+						 <td>
+			   <div >
+				 <a class="cardBox" href="https://twitter.com/"   target="_blank">
+				         <h3>Twitter</h5>
+						 <div class="remark_data" >推特</div>
+				</a>
+		     </div>
+			</td>
+
+			 <td>
+			   <div >
+				 <a class="cardBox" href="https://cn.pornhub.com/"  target="_blank">
+				         <h3>pornhub</h5>
+						 <div class="remark_data" >视频网站</div>
+				</a>
+		     </div>
+			</td>
+									 <td>
+			   <div >
+				 <a class="cardBox" href="https://afdian.net/"  target="_blank">
+				         <h3>爱发电</h5>
+						 <div class="remark_data" >创作者赞助平台</div>
+				</a>
+		     </div>
+			</td>
+				<td>
+			   <div >
+				 <a class="cardBox" href="https://www.patreon.com/zh-CN"   target="_blank">
+				         <h3>patreon</h5>
+						 <div class="remark_data" >创作者赞助平台</div>
+				</a>
+		     </div>
+			</td>
+
+		  </tr>
+	  </table>
+ </el-tab-pane>
 </el-tabs>
+</template>
 		</div>
 	</body>
 			     <!-- import Vue before Element -->
@@ -594,11 +705,18 @@
 			     <!-- import JavaScript -->
 			  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 	  <script>
-       new Vue({
-               el: '#app',
-               data:{
-			 
-                    }
-        })
+       var app = new Vue({
+         el:"#app",
+         data:{
+         tableData:[
+                {"name":"佛跳墙VPN（永久免费）","remark":"vpn","address":"https://www.qingfengshenzhen.com/cn/?a=dnxe2#one"},
+		        {"name":"骂人宝典","remark":"祖安语录","address":"https://zuanbot.com/"},
+				  {"name":" 格式工厂  ","remark":"  转换格式  ","address":"   http://www.pcgeshi.com/index.html  "},
+				    {"name":" 生活重启  ","remark":"  模拟器  ","address":"   https://liferestart.syaro.io/view/  "}
+
+            ]
+        }
+    });
   </script>
+
 </html>
