@@ -1,0 +1,1 @@
+const checkCode = "4547cd9eb5601ef4edbdbe0dd783d0c3";
