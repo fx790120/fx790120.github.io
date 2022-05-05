@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<!-- import CSS -->
-                <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+                <link rel="stylesheet" href="./plugin/css/element-ui@2.15.7_index.css">
 		<title>网址导航</title>
 		
 		<!--去掉超链接中的下划线-->
@@ -22,9 +22,9 @@
                 float: left;
 				/*设置边框圆角*/
                 border-radius: 5px;
-				background-color: #b0d5df;  
+				background-color: #93D5DC;  
 				margin:10px;
-				
+				color: #379DD5;
             
             }
 	     .tr_data{
@@ -49,6 +49,7 @@
 		<div id= "app" >
 		  <template>
 	                 <el-tabs type="border-card"  >
+  <!--
   <el-tab-pane label="首页">
       
 		  <div width="70%" align = "center" >这是首页
@@ -99,6 +100,7 @@
 	       </div>
 	       </div>
 	 </el-tab-pane>
+	 -->
 				 
   <el-tab-pane label="常用功能">
    
@@ -186,6 +188,26 @@
 						 <div class="remark_data" >碧蓝航线攻略</div>
 				</a>
 		     </div>
+			</td>
+			
+		    <td>
+			   <div @click="dialogFormVisible = true">
+				 <a class="cardBox">
+				         <h3>线性代数</h5>
+						 <div class="remark_data" >线性代数教程</div>
+				</a>
+		     </div>
+					 <el-dialog title="请输入验证码" :visible.sync="dialogFormVisible" @close="checkPassword">
+					  <el-form>
+						<el-form-item label="验证码" :label-width="formLabelWidth">
+						  <el-input v-model="codeNew" autocomplete="off"></el-input>
+						</el-form-item>
+					  </el-form>
+					  <div slot="footer" class="dialog-footer">
+						<el-button @click="dialogFormVisible = false">取 消</el-button>
+						<el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+					  </div>
+					</el-dialog>
 			</td>
 			
 		 </tr>
@@ -1012,7 +1034,7 @@
 			  </tr>
 	  </table>
  </el-tab-pane> 
- <el-tab-pane label="">
+ <el-tab-pane label="private" name="private_url">
           <table width="80%" align="center">
 	     <tr class="tr_data">
 									 <td>
@@ -1082,13 +1104,19 @@
 		</div>
 	</body>
 			     <!-- import Vue before Element -->
-			  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+			  <script src="./plugin/js/vue.min.js"></script>
 			     <!-- import JavaScript -->
-			  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+			  <script src="./plugin/js/element-ui@2.15.7_index.js"></script>		 
+			  <script src="./plugin/js/jQuery -3.6.0.js"></script>
+			  <script src="./plugin/js/config.js"></script>
+			  <script src="./plugin/js/jQuery.MD5.js"></script>
 	  <script>
        var app = new Vue({
          el:"#app",
          data:{
+		 
+		 dialogFormVisible: false,
+		 formLabelWidth: '100px',
          tableData:[
                 {"name":"佛跳墙VPN（永久免费）","remark":"vpn","address":"https://www.qingfengshenzhen.com/cn/?a=dnxe2#one"},
 		        {"name":"骂人宝典","remark":"祖安语录","address":"https://zuanbot.com/"},
@@ -1182,9 +1210,40 @@
           content: '宇宙诞生',
           timestamp: '150亿年前 ',
 		  color:"black"
-        }]
-        }
+        }],
+		codeNew: '',
+        },
+		
+		mounted(){
+		    $("#tab-private_url").hide();
+		},
+		
+		methods: {
+		
+		checkPassword(){
+			let codeChange = $.md5(this.codeNew);
+			if(codeChange == checkCode){
+			  $("#tab-private_url").show();
+			  	this.$message({
+					type: 'success',
+					message: '验证码正确',
+					duration: 1000
+				  });
+		    }else{
+					this.$message({
+						type: 'error',
+						message: '验证码错误',
+						duration: 3000
+					  });
+				  }
+		},
+		},
+		
     });
+	
+	window.onload = function(){
+		 $("#tab-private_url").hide();
+	};
   </script>
 
 </html>
